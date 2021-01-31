@@ -3,15 +3,12 @@ const fi = (function() {
     libraryMethod: function() {
       return 'Start by reading https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0'
     },
-
     each: function(collection, callback) {
 let array = (collection instanceof Array) ? collection.slice() : Object.values(collection);
   for (let i = 0; i < array.length; i++)
        callback(array[i]);
-
       return collection;
     },
-
     map: function(collection, callback) {
       let array=[];
      if (!(collection instanceof Array))
@@ -26,12 +23,10 @@ let array = (collection instanceof Array) ? collection.slice() : Object.values(c
       acc = col[0];
       col = col.splice(1);
     }
-
     for (let i = 0; i < col.length; i++)
     acc=callback(acc, col[i], col);
     return acc;
     },
-
    find:function(collection, predicate) {
     if (!(collection instanceof Array))
         collection = Object.values(collection)
@@ -42,7 +37,6 @@ let array = (collection instanceof Array) ? collection.slice() : Object.values(c
         }
      return undefined;
     },
-
     filter : function(collection, predicate) {
       let array=[];
         if (!(collection instanceof Array))
@@ -53,7 +47,6 @@ let array = (collection instanceof Array) ? collection.slice() : Object.values(c
         }
     return array;
     },
-
     size : function(collection) {
         let c=0;
         if (!(collection instanceof Array))
@@ -64,23 +57,19 @@ let array = (collection instanceof Array) ? collection.slice() : Object.values(c
         }
     return c;
     },
-
     first : function(array, n) {
        if(!n){
        return array[0];
        }else{
        return array.slice(0,n);
        }
-
     },
-
     last:function(array, n) {
        if(!n){
        return array[array.length-1];
        }else{
        return array.slice(array.length-n);
        }
-
     },
     compact : function(array) {
       let array1=[]
@@ -90,15 +79,12 @@ let array = (collection instanceof Array) ? collection.slice() : Object.values(c
        }
        return array1;
     },
-
     sortBy: function(array, callback) {
       const arr = [...array]
       return arr.sort(function(x, y) {
         return callback(x) - callback(y)
       })
     },
-
-
     uniq: function(array, isSorted, callback) {
       if (isSorted) {
         return fi.uniqSorted(array, iteratee)
@@ -117,7 +103,6 @@ let array = (collection instanceof Array) ? collection.slice() : Object.values(c
         return Array.from(uniqVals)
       }
     },
-
     keys: function(object) {
       let array = []
       for (let i in object){
@@ -125,7 +110,6 @@ let array = (collection instanceof Array) ? collection.slice() : Object.values(c
       }
       return array
     },
-
     values: function(object) {
      let array = []
       for (let i in object){
@@ -133,7 +117,6 @@ let array = (collection instanceof Array) ? collection.slice() : Object.values(c
       }
       return array
     },
-
   functions: function(object) {
       let array=[]
     for(let i in object){
@@ -141,11 +124,8 @@ let array = (collection instanceof Array) ? collection.slice() : Object.values(c
         array.push(i)
       }
     }
-
     return array;
     },
-
-
    flatten: function(array, shallow,arr=[]) {
       if (!Array.isArray(array)) return arr.push(array)
       if (shallow) {
